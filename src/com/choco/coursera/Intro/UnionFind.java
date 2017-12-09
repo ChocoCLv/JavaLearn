@@ -1,4 +1,4 @@
-package com.choco.coursera;
+package com.choco.coursera.Intro;
 
 
 import java.util.HashSet;
