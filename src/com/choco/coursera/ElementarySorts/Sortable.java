@@ -14,5 +14,17 @@ public interface Sortable {
         return false;
     }
 
+    /*
+    判断一个数组，在区间[begin, end]内是否有序
+     */
+    static boolean isSorted(Comparable[] datas, int begin, int end) {
+        for (int i = begin; i < end; i++) {
+            if (less(datas[i + 1], datas[i])) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     void sort(Comparable[] datas);
 }
