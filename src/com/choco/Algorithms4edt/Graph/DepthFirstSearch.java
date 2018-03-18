@@ -3,9 +3,8 @@ package com.choco.Algorithms4edt.Graph;
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdOut;
 
-public class DepthFirstSearch implements Search {
-    private boolean[] marked;
-    private int count;
+public class DepthFirstSearch extends Search {
+
 
     public DepthFirstSearch(Graph G, int s) {
         marked = new boolean[G.V()];
@@ -38,11 +37,5 @@ public class DepthFirstSearch implements Search {
         }
     }
 
-    public boolean marked(int w) {
-        return marked[w];
-    }
 
-    public int count() {
-        return count;
-    }
 }

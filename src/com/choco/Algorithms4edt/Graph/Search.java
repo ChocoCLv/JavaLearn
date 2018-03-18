@@ -1,11 +1,14 @@
 package com.choco.Algorithms4edt.Graph;
 
-public interface Search {
+public abstract class Search {
+    boolean[] marked;
+    int count;
 
-    //顶点v和s是否连通
-    boolean marked(int v);
+    public boolean marked(int w) {
+        return marked[w];
+    }
 
-
-    //与s连通的顶点数
-    int count();
+    public int count() {
+        return count;
+    }
 }
