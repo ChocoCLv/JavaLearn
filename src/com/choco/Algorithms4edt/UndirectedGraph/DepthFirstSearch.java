@@ -1,4 +1,4 @@
-package com.choco.Algorithms4edt.Graph;
+package com.choco.Algorithms4edt.UndirectedGraph;
 
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdOut;

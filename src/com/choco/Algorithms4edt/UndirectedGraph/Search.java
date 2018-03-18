@@ -1,4 +1,4 @@
-package com.choco.Algorithms4edt.Graph;
+package com.choco.Algorithms4edt.UndirectedGraph;
 
 public abstract class Search {
     boolean[] marked;

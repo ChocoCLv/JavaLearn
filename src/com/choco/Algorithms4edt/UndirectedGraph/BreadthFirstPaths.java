@@ -1,27 +1,23 @@
-package com.choco.Algorithms4edt.Graph;
+package com.choco.Algorithms4edt.UndirectedGraph;
 
 import edu.princeton.cs.algs4.In;
+import edu.princeton.cs.algs4.Queue;
 import edu.princeton.cs.algs4.StdOut;
 
-/*
-    从某个节点出发深度优先遍历，构造生成树
- */
+public class BreadthFirstPaths extends Paths {
 
-public class DepthFirstPaths extends Paths {
-
-
-    public DepthFirstPaths(Graph G, int s) {
+    public BreadthFirstPaths(Graph G, int s) {
         marked = new boolean[G.V()];
         edgeTo = new int[G.V()];
         this.s = s;
-        dfs(G, s);
+        bfs(G, s);
     }
 
     public static void main(String[] args) {
         Graph G = new Graph(new In(args[0]));
         int s = Integer.parseInt(args[1]);
 
-        Paths search = new DepthFirstPaths(G, s);
+        Paths search = new BreadthFirstPaths(G, s);
         for (int v = 0; v < G.V(); v++) {
             StdOut.print(s + " to " + v + ": ");
             if (search.hasPathTo(v)) {
@@ -36,13 +32,19 @@ public class DepthFirstPaths extends Paths {
         }
     }
 
-    private void dfs(Graph G, int v) {
-        marked[v] = true;
-
-        for (int w : G.adj(v)) {
-            if (!marked[w]) {
-                edgeTo[w] = v;
-                dfs(G, w);
+    private void bfs(Graph G, int v) {
+        Queue<Integer> queue = new Queue<>();
+        queue.enqueue(v);
+        while (!queue.isEmpty()) {
+            int w = queue.dequeue();
+            marked[w] = true;
+            for (int s : G.adj(w)) {
+                if (!marked[s]) {
+                    edgeTo[s] = w;
+                    //需要及时更新节点的访问情况
+                    marked[s] = true;
+                    queue.enqueue(s);
+                }
             }
         }
     }
