@@ -14,7 +14,6 @@ public class ReverseInteger {
             int scale = 1;
             int[] maxs={2,1,4,7,4,8,3,6,4,7};
 
-            Integer.parseInt()
             int before = Math.abs(x);
             if(before<0)
                 return 0;
