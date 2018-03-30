@@ -22,9 +22,9 @@ public class Palindrome {
 
         public boolean isPalindrome(int x) {
             int a = 0;
-            if (x < 10&&x>=0)
+            if (x < 10 && x >= 0)
                 return true;
-            if (x < 0 || x%10==0)
+            if (x < 0 || x % 10 == 0)
                 return false;
 
             while (a < x) {
@@ -32,10 +32,10 @@ public class Palindrome {
                 x /= 10;
             }
 
-            if(getDigits(x)==getDigits(a)){
+            if (getDigits(x) == getDigits(a)) {
                 return x == a;
-            }else{
-                return a/10==x;
+            } else {
+                return a / 10 == x;
             }
         }
     }
