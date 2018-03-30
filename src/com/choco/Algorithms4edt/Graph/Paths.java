@@ -1,4 +1,4 @@
-package com.choco.Algorithms4edt.UndirectedGraph;
+package com.choco.Algorithms4edt.Graph;
 
 import com.choco.Algorithms4edt.DataStructure.ResizingArrayStack;
 import com.choco.Algorithms4edt.DataStructure.Stack;

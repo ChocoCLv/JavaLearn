@@ -1,4 +1,4 @@
-package com.choco.Algorithms4edt.UndirectedGraph;
+package com.choco.Algorithms4edt.Graph;
 
 import com.choco.Algorithms4edt.DataStructure.Bag;
 import edu.princeton.cs.algs4.In;
@@ -16,13 +16,13 @@ public class Graph {
         }
     }
 
-    public Graph(In in){
+    public Graph(In in) {
         this(in.readInt());
         int E = in.readInt();
-        for(int i = 0; i<E;i++){
+        for (int i = 0; i < E; i++) {
             int v = in.readInt();
             int w = in.readInt();
-            addEdge(v,w);
+            addEdge(v, w);
         }
     }
 

@@ -1,4 +1,4 @@
-package com.choco.Algorithms4edt.UndirectedGraph;
+package com.choco.Algorithms4edt.Graph;
 
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.Queue;
@@ -29,13 +29,13 @@ public class BreadthFirstSearch extends Search {
     private void bfs(Graph G, int v) {
         Queue<Integer> queue = new Queue<>();
         queue.enqueue(v);
-        while(!queue.isEmpty()){
+        while (!queue.isEmpty()) {
             int s = queue.dequeue();
             marked[s] = true;
             count++;
-            for(int w:G.adj(s)){
-                if(!marked[w]){
-                    marked[w]=true;
+            for (int w : G.adj(s)) {
+                if (!marked[w]) {
+                    marked[w] = true;
                     count++;
                 }
             }
