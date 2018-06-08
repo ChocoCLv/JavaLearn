@@ -26,5 +26,7 @@ hs_err_pid*
 
 launch.json
 
+*.iml
+
 .vscode
 .idea
