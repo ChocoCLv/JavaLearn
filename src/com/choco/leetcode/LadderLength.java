@@ -1,43 +1,107 @@
-
 package com.choco.leetcode;
 
-// 给定两个单词（beginWord 和 endWord）和一个字典，找到从 beginWord 到 endWord 的最短转换序列的长度。转换需遵循如下规则：
+import java.util.*;
 
-// 每次转换只能改变一个字母。
-// 转换过程中的中间单词必须是字典中的单词。
-// 说明:
-
-// 如果不存在这样的转换序列，返回 0。
-// 所有单词具有相同的长度。
-// 所有单词只由小写字母组成。
-// 字典中不存在重复的单词。
-// 你可以假设 beginWord 和 endWord 是非空的，且二者不相同。
-// 示例 1:
-
-// 输入:
-// beginWord = "hit",
-// endWord = "cog",
-// wordList = ["hot","dot","dog","lot","log","cog"]
-
-// 输出: 5
-
-// 解释: 一个最短转换序列是 "hit" -> "hot" -> "dot" -> "dog" -> "cog",
-//      返回它的长度 5。
-// 示例 2:
-
-// 输入:
-// beginWord = "hit"
-// endWord = "cog"
-// wordList = ["hot","dot","dog","lot","log"]
-
-// 输出: 0
-
-// 解释: endWord "cog" 不在字典中，所以无法进行转换。
 /**
- * LadderLength
- * 广度优先搜索
+ * LadderLength 广度优先搜索
  */
 public class LadderLength {
+    public static void main(String[] args) {
+        LadderLength ladderLength = new LadderLength();
+        Solution solution = ladderLength.new Solution();
+        List<String> wordList = Arrays.asList(new String[]{"hot", "dog", "cog", "pot", "dot"});
+        System.out.println(solution.ladderLength("hot", "dog", wordList));
+    }
 
-    
+    class Solution {
+        Map<String, Node> graph;
+
+        public int ladderLength(String beginWord, String endWord, List<String> wordList) {
+            graph = new HashMap<>();
+            List<String> l = new ArrayList<>();
+            l.addAll(wordList);
+            if (!l.contains(beginWord))
+                l.add(beginWord);
+            initWordGraph(l);
+            return BFS(beginWord, endWord);
+        }
+
+        private int BFS(String beginWord, String endWord) {
+            Node beginNode = getNodeByWord(beginWord);
+            Queue<Node> queue = new LinkedList();
+            queue.add(beginNode);
+            beginNode.depth = 1;
+            Node node;
+            while (!queue.isEmpty()) {
+                node = queue.remove();
+                node.isVisited = true;
+                for (Node n : node.adjNodes) {
+                    if (!n.isVisited) {
+                        n.isVisited = true;
+                        n.depth = node.depth + 1;
+                        if (n.word.equals(endWord)) {
+                            return n.depth;
+                        }
+                        queue.add(n);
+                    }
+                }
+            }
+            return 0;
+        }
+
+        private void initWordGraph(List<String> wordList) {
+            Node node1, node2;
+            String word1, word2;
+            for (int i = 0; i < wordList.size(); i++) {
+                word1 = wordList.get(i);
+                node1 = getNodeByWord(word1);
+                for (int j = i + 1; j < wordList.size(); j++) {
+                    word2 = wordList.get(j);
+                    node2 = getNodeByWord(word2);
+                    if (wordDistance(word1, word2) == 1) {
+                        node1.adjNodes.add(node2);
+                        node2.adjNodes.add(node1);
+                    }
+                }
+            }
+        }
+
+        private Node getNodeByWord(String word) {
+            if (graph.containsKey(word)) {
+                return graph.get(word);
+            }
+            Node node = new Node(word);
+            graph.put(word, node);
+            return node;
+        }
+
+        // 计算两个Word中不同对应位置不同字母的数量
+        private int wordDistance(String word1, String word2) {
+            int diff = 0;
+            for (int i = 0; i < word1.length(); i++) {
+                if (word1.charAt(i) != word2.charAt(i)) {
+                    diff++;
+                }
+                if (diff == 2) {
+                    break;
+                }
+            }
+            return diff;
+        }
+
+        class Node {
+            String word;
+            // 存储邻接节点 即与当前节点汉明距离为1的Word节点
+            List<Node> adjNodes;
+            boolean isVisited;
+            int depth;
+
+            Node(String word) {
+                adjNodes = new ArrayList<>();
+                this.word = word;
+                isVisited = false;
+
+            }
+        }
+    }
 }
