@@ -1,5 +1,10 @@
 package com.choco.leetcode;
 
+
+/**
+ * Q5: Longest Palindromic Substring
+ * 给定一个字符串 s，找到 s 中最长的回文子串。
+ */
 public class LongestPalindrome {
     public static void main(String[] args) {
         LongestPalindrome lp = new LongestPalindrome();
