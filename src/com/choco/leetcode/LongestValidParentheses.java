@@ -1,6 +1,5 @@
 package com.choco.leetcode;
 
-import java.util.LinkedList;
 import java.util.Stack;
 
 /**
@@ -11,6 +10,7 @@ import java.util.Stack;
 public class LongestValidParentheses {
     class Solution {
         String s;
+
         public int longestValidParentheses(String s) {
             this.s = s;
             return clear();
@@ -35,11 +35,11 @@ public class LongestValidParentheses {
                             e = new Element();
                             e.num = 2;
                             stack.push(e);
-                            res = Math.max(res,2);
+                            res = Math.max(res, 2);
                         } else if (stack.peek().num != 0) {
                             stack.pop();
                         }
-                    } else if(stack.size()>=2){
+                    } else if (stack.size() >= 2) {
                         Element top = stack.pop();
                         if (top.c == '(') {
                             int num = 2;
@@ -49,18 +49,18 @@ public class LongestValidParentheses {
                             e = new Element();
                             e.num = num;
                             stack.push(e);
-                            res = Math.max(res,num);
-                        } else if (top.num != 0){
+                            res = Math.max(res, num);
+                        } else if (top.num != 0) {
                             int num = 2;
                             num += top.num;
                             stack.pop();
-                            while(!stack.isEmpty()&&stack.peek().num!=0){
-                                num+=stack.pop().num;
+                            while (!stack.isEmpty() && stack.peek().num != 0) {
+                                num += stack.pop().num;
                             }
                             e = new Element();
                             e.num = num;
                             stack.push(e);
-                            res = Math.max(res,num);
+                            res = Math.max(res, num);
                         }
                     }
                 }
