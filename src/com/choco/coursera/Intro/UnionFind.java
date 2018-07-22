@@ -34,6 +34,7 @@ public class UnionFind {
     }
 
     //add connection between p and q
+    //连接两棵树时考虑树的大小 将小树作为大树的子树，防止过深
     void union(int p, int q) {
 
         int i = root(p);
