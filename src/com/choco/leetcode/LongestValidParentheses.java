@@ -13,7 +13,7 @@ public class LongestValidParentheses {
 
         public int longestValidParentheses(String s) {
             this.s = s;
-            return clear();
+            return dynamicPrograming();
         }
 
         private int clear() {
@@ -68,6 +68,24 @@ public class LongestValidParentheses {
             return res;
         }
 
+        private int dynamicPrograming() {
+            int res = 0;
+            char c;
+            int[] dp = new int[s.length() + 1];
+            dp[0] = 0;
+            for (int i = 1; i <= s.length(); i++) {
+                int j = i - 2 - dp[i - 1];
+                c = s.charAt(i-1);
+                if (c == '(' || j < 0 || s.charAt(j) == ')')
+                    dp[i] = 0;
+                else {
+                    dp[i] = dp[i - 1] + 2 + dp[j];
+                    res = res > dp[i] ? res : dp[i];
+                }
+            }
+            return res;
+        }
+
         class Element {
             int num;
             int c;
@@ -77,6 +95,6 @@ public class LongestValidParentheses {
     public static void main(String[] args) {
         LongestValidParentheses lvp = new LongestValidParentheses();
         Solution solution = lvp.new Solution();
-        System.out.println(solution.longestValidParentheses(")(((((()())()()))()(()))("));
+        System.out.println(solution.longestValidParentheses("(()"));
     }
 }
