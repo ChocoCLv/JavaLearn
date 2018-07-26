@@ -14,17 +14,6 @@ public class WordBreak {
             this.s = s;
             this.wd = wordDict;
             dp = new int[s.length()];
-            this.wd.sort(new Comparator<String>() {
-                @Override
-                public int compare(String o1, String o2) {
-                    if (o1.length() > o2.length())
-                        return -1;
-                    else if (o1.length() == o2.length())
-                        return 0;
-                    else
-                        return 1;
-                }
-            });
             for (int i = 0; i < wd.size(); i++) {
                 char c = wd.get(i).charAt(0);
                 if (charLocs.containsKey(c)) {
@@ -42,9 +31,7 @@ public class WordBreak {
         private boolean combineWord(int start, int end) {
             if (start == end)
                 return true;
-            if (start > end)
-                return false;
-            if(dp[start] == -1)
+            if (start > end || dp[start]== -1)
                 return false;
 
             List<Integer> locs = charLocs.getOrDefault(s.charAt(start), new ArrayList<>());
