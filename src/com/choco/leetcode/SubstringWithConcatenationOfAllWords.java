@@ -1,7 +1,9 @@
 package com.choco.leetcode;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Q30 与所有单词相关联的字串
@@ -15,6 +17,7 @@ import java.util.List;
  * 解释: 从索引 0 和 9 开始的子串分别是 "barfoor" 和 "foobar" 。
  * 输出的顺序不重要, [9,0] 也是有效答案。
  * 示例 2:
+ * <b>该样例有误</b>
  * 输入:
  * s = "wordgoodstudentgoodword",
  * words = ["word","student"]
@@ -24,13 +27,51 @@ public class SubstringWithConcatenationOfAllWords {
     public static void main(String[] args) {
         SubstringWithConcatenationOfAllWords swcoaw = new SubstringWithConcatenationOfAllWords();
         Solution solution = swcoaw.new Solution();
-        List<Integer> result = solution.findSubstring("aaaaaaaa", new String[]{"aa", "aa","aa"});
+        List<Integer> result = solution.findSubstring("barfoothefoobarman", new String[]{"foo","bar"});
         for (int r : result) {
             System.out.print(r + " ");
         }
     }
 
     class Solution {
+        private int l;
+        private int n;
+        private String s;
+        public List<Integer> findSubstring(String s, String[] words) {
+            List<Integer> result = new ArrayList<>();
+            HashMap<String, Integer> wordsMap = new HashMap<>();
+            HashMap<String, Integer> map = new HashMap<>();
+            if (words.length == 0)
+                return result;
+            l = words[0].length();
+            n = words.length;
+            this.s = s;
+            for (String word : words) {
+                int times = wordsMap.getOrDefault(word, 0);
+                wordsMap.put(word, times + 1);
+            }
+            for (int i = 0; (i + n * l) <= s.length(); i++) {
+                map.putAll(wordsMap);
+                if(isRight(i,map,0))
+                    result.add(i);
+            }
+            return result;
+        }
+
+        private boolean isRight(int i, Map<String, Integer> map,int count) {
+            if(count==n)
+                return true;
+            String substring = s.substring(i, i + l);
+            int times = map.getOrDefault(substring, 0);
+            if (times == 0)
+                return false;
+            times--;
+            map.put(substring,times);
+            return isRight(i+l,map,count+1);
+        }
+    }
+
+    class SolutionTimeOut {
         private int[][] a;
         private String[] words;
         private String s;
