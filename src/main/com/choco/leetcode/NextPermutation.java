@@ -37,6 +37,7 @@ public class NextPermutation {
             int length = nums.length;
             if (length < 2)
                 return;
+            //最后一个极大值在末尾
             if (nums[length - 1] > nums[length - 2]) {
                 int tmp = nums[length - 1];
                 nums[length - 1] = nums[length - 2];
@@ -49,10 +50,13 @@ public class NextPermutation {
                     maximal = i;
                 }
             }
+            //最后一个极大值在起点
             if (maximal == 0) {
                 Arrays.sort(nums);
                 return;
             }
+
+            //一般情况
             int left = nums[maximal - 1];
             int rightIndex = maximal;
             for (int i = maximal; i < length; i++) {
