@@ -1,8 +1,11 @@
 package com.choco.leetcode;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by choco on 2018/11/29.
@@ -56,16 +59,44 @@ import static org.junit.Assert.assertEquals;
  * 输出: false
  */
 public class RegularExpressionMatchingTest {
-    @Test
-    public void testIsMatch() {
+    RegularExpressionMatching.Solution solution;
+    @Before
+    public void setUp(){
         RegularExpressionMatching rem = new RegularExpressionMatching();
-        RegularExpressionMatching.Solution solution = rem.new Solution();
-        assertEquals(solution.isMatch("", "c*c*"), true);
-        assertEquals(solution.isMatch("aa", "a"), false);
-        assertEquals(solution.isMatch("aa", "a*"), true);
-        assertEquals(solution.isMatch("ab", ".*"), true);
-        assertEquals(solution.isMatch("aab", "c*a*b"), true);
-        assertEquals(solution.isMatch("mississippi", "mis*is*p*."), false);
+        solution = rem.new BestSolution();
+    }
+
+    @Test
+    public void testIsMatch1() {
+        assertTrue(solution.isMatch("", "c*c*"));
+    }
+    @Test
+    public void testIsMatch2() {
+        assertFalse(solution.isMatch("aa", "a"));
+    }
+    @Test
+    public void testIsMatch3() {
+        assertTrue(solution.isMatch("aa", "a*"));
+    }
+    @Test
+    public void testIsMatch4() {
+        assertTrue(solution.isMatch("ab", ".*"));
+    }
+    @Test
+    public void testIsMatch5() {
+        assertTrue(solution.isMatch("aab", "c*a*b"));
+    }
+    @Test
+    public void testIsMatch6() {
+        assertFalse(solution.isMatch("mississippi", "mis*is*p*."));
+    }
+    @Test
+    public void testIsMatch7() {
+        assertTrue(solution.isMatch("a", ".*"));
+    }
+    @Test
+    public void testIsMatch8() {
+        assertFalse(solution.isMatch("bb", "..*c"));
     }
 
 }
