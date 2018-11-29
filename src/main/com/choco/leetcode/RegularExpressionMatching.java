@@ -48,12 +48,6 @@ package com.choco.leetcode;
  * 输出: false
  */
 public class RegularExpressionMatching {
-    public static void main(String[] args) {
-        RegularExpressionMatching rem = new RegularExpressionMatching();
-        Solution solution = rem.new Solution();
-        System.out.println(solution.isMatch("aab", "c*a*b"));
-    }
-
     class Solution {
         String s;
         String p;
@@ -66,11 +60,18 @@ public class RegularExpressionMatching {
         }
 
         private boolean isMatch(int i, int j) {
+            boolean result;
             if (i == s.length() && j == p.length())
                 return true;
-            if (i == s.length() || j == p.length())
+            if (j == p.length())
                 return false;
-            boolean result;
+            if (i == s.length()) {
+                if ((j + 1) < p.length() && p.charAt(j + 1) == '*')
+                    return isMatch(i, j + 2);
+                if (j < p.length() && p.charAt(j) == '*')
+                    return isMatch(i, j + 1);
+                return false;
+            }
             if (s.charAt(i) == p.charAt(j) || p.charAt(j) == '.') {
                 result = isMatch(i + 1, j + 1);
                 if (result)
@@ -82,8 +83,8 @@ public class RegularExpressionMatching {
                 if (result)
                     return true;
                 //p[j-1]至少出现1次
-                while (j > 0 && s.charAt(i) == p.charAt(j - 1)) {
-                    result = isMatch(i++, j + 1);
+                while (j > 0 && i < s.length() && (s.charAt(i) == p.charAt(j - 1) || p.charAt(j - 1) == '.')) {
+                    result = isMatch(++i, j + 1);
                     if (result)
                         return true;
                 }
