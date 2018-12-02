@@ -3,7 +3,6 @@ package com.choco.leetcode;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -60,8 +59,9 @@ import static org.junit.Assert.assertTrue;
  */
 public class RegularExpressionMatchingTest {
     RegularExpressionMatching.Solution solution;
+
     @Before
-    public void setUp(){
+    public void setUp() {
         RegularExpressionMatching rem = new RegularExpressionMatching();
         solution = rem.new BestSolution();
     }
@@ -70,30 +70,37 @@ public class RegularExpressionMatchingTest {
     public void testIsMatch1() {
         assertTrue(solution.isMatch("", "c*c*"));
     }
+
     @Test
     public void testIsMatch2() {
         assertFalse(solution.isMatch("aa", "a"));
     }
+
     @Test
     public void testIsMatch3() {
         assertTrue(solution.isMatch("aa", "a*"));
     }
+
     @Test
     public void testIsMatch4() {
         assertTrue(solution.isMatch("ab", ".*"));
     }
+
     @Test
     public void testIsMatch5() {
         assertTrue(solution.isMatch("aab", "c*a*b"));
     }
+
     @Test
     public void testIsMatch6() {
         assertFalse(solution.isMatch("mississippi", "mis*is*p*."));
     }
+
     @Test
     public void testIsMatch7() {
         assertTrue(solution.isMatch("a", ".*"));
     }
+
     @Test
     public void testIsMatch8() {
         assertFalse(solution.isMatch("bb", "..*c"));
