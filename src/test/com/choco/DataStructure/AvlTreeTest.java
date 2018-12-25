@@ -13,6 +13,6 @@ public class AvlTreeTest {
             t.insert(i);
         }
 
-        t.printTreeInfo();
+        t.printTreeInfoByInOrder();
     }
 }
