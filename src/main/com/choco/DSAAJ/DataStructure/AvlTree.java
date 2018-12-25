@@ -1,4 +1,4 @@
-package com.choco.DataStructure;
+package com.choco.DSAAJ.DataStructure;
 
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;

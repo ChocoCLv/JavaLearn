@@ -1,6 +1,4 @@
-package com.choco.DataStructure;
-
-import java.util.Comparator;
+package com.choco.DSAAJ.DataStructure;
 
 public class BinaryHeap<T extends Comparable> implements Heap<T> {
     public T[] data;

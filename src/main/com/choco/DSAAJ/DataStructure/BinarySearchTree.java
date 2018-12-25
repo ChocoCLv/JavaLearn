@@ -1,4 +1,4 @@
-package com.choco.DataStructure;
+package com.choco.DSAAJ.DataStructure;
 
 public class BinarySearchTree<T extends Comparable<? super T>> {
 

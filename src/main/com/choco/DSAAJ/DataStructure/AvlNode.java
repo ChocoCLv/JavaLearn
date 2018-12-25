@@ -1,4 +1,4 @@
-package com.choco.DataStructure;
+package com.choco.DSAAJ.DataStructure;
 
 /**
  * Created by choco on 2018/12/24.
