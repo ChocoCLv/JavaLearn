@@ -9,13 +9,6 @@ import java.util.Queue;
  * Created by choco on 2018/4/25.
  */
 public class ValidateBinarySearchTree {
-     // Definition for a binary tree node.
-     public class TreeNode {
-         int val;
-         TreeNode left;
-         TreeNode right;
-         TreeNode(int x) { val = x; }
-      }
 
     class Solution{
         List<Integer> node_list = new ArrayList<>();

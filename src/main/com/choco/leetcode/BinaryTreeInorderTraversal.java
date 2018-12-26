@@ -20,15 +20,7 @@ import java.util.List;
  */
 
 public class BinaryTreeInorderTraversal {
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
 
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     private List<Integer> result = new ArrayList<>();
 
