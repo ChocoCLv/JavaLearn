@@ -7,11 +7,11 @@ import java.util.List;
 public class BinaryTreeInorderTraversalTest {
 
     @Test
-    public void inorderTraversal() {
+    public void inrderTraversal() {
         BinaryTreeInorderTraversal btit = new BinaryTreeInorderTraversal();
-        BinaryTreeInorderTraversal.TreeNode node1 = btit.new TreeNode(1);
-        BinaryTreeInorderTraversal.TreeNode node2 = btit.new TreeNode(2);
-        BinaryTreeInorderTraversal.TreeNode node3 = btit.new TreeNode(3);
+        TreeNode node1 = new TreeNode(1);
+        TreeNode node2 = new TreeNode(2);
+        TreeNode node3 = new TreeNode(3);
 
         node1.right = node2;
         node2.left = node3;
