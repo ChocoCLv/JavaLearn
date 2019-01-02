@@ -1,74 +1,47 @@
 package com.choco.leetcode;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
-
 /**
- * Created by choco on 2018/4/25.
+ * Q98 验证二叉搜索树
+ * 给定一个二叉树，判断其是否是一个有效的二叉搜索树。
+ * <p>
+ * 假设一个二叉搜索树具有如下特征：
+ * <p>
+ * 节点的左子树只包含小于当前节点的数。
+ * 节点的右子树只包含大于当前节点的数。
+ * 所有左子树和右子树自身必须也是二叉搜索树。
+ * 示例 1:
+ * <p>
+ * 输入:
+ * 2
+ * / \
+ * 1   3
+ * 输出: true
+ * 示例 2:
+ * <p>
+ * 输入:
+ * 5
+ * / \
+ * 1   4
+ * / \
+ * 3   6
+ * 输出: false
+ * 解释: 输入为: [5,1,4,null,null,3,6]。
+ * 根节点的值为 5 ，但是其右子节点值为 4 。
  */
 public class ValidateBinarySearchTree {
 
-    class Solution{
-        List<Integer> node_list = new ArrayList<>();
+    class Solution {
         public boolean isValidBST(TreeNode root) {
-            if(root == null)
-                return true;
-            if(!dfs(root))
-                return false;
-            for(int i = 0 ; i < node_list.size()-1 ; i++){
-                if(node_list.get(i) >= node_list.get(i+1))
-                    return false;
-            }
-            return true;
-           // return bfs(root);
+            return isValid(root, null, null);
         }
 
-        private boolean dfs(TreeNode root){
-            if(root.left != null){
-                if(root.left.val >= root.val)
-                    return false;
-                if(!dfs(root.left))
-                    return false;
-            }
-
-            node_list.add(root.val);
-
-            if(root.right != null){
-                if(root.right.val <= root.val)
-                    return false;
-                if(!dfs(root.right))
-                    return false;
-            }
-
-
-            return true;
-        }
-
-        private boolean bfs(TreeNode root){
-            if(root==null){
+        public boolean isValid(TreeNode root, Integer min, Integer max) {
+            if (root == null) {
                 return true;
             }
-            Queue<TreeNode> queue = new LinkedList<>();
-            TreeNode node;
-            queue.add(root);
-            while(!queue.isEmpty()){
-                node = queue.remove();
-                if(node.left!=null){
-                    queue.add(node.left);
-                    if(node.left.val >= node.val){
-                        return false;
-                    }
-                }
-                if(node.right!=null){
-                    queue.add(node.right);
-                    if(node.right.val <= node.val){
-                        return false;
-                    }
-                }
-            }
-            return true;
+            if (min != null && root.val <= min) return false;
+            if (max != null && root.val >= max) return false;
+            return isValid(root.left, min, root.val) && isValid(root.right, root.val, max);
         }
     }
 }
