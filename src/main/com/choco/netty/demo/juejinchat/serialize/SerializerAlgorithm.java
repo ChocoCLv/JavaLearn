@@ -1,4 +1,4 @@
-package com.choco.nettychat.serialize;
+package com.choco.netty.demo.juejinchat.serialize;
 
 public interface SerializerAlgorithm {
     /**

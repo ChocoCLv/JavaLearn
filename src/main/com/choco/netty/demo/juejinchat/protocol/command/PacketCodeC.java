@@ -1,17 +1,17 @@
-package com.choco.nettychat.protocol.command;
+package com.choco.netty.demo.juejinchat.protocol.command;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufAllocator;
-import com.choco.nettychat.protocol.request.LoginRequestPacket;
-import com.choco.nettychat.protocol.response.LoginResponsePacket;
-import com.choco.nettychat.serialize.Serializer;
-import com.choco.nettychat.serialize.impl.JSONSerializer;
+import com.choco.netty.demo.juejinchat.protocol.request.LoginRequestPacket;
+import com.choco.netty.demo.juejinchat.protocol.response.LoginResponsePacket;
+import com.choco.netty.demo.juejinchat.serialize.Serializer;
+import com.choco.netty.demo.juejinchat.serialize.impl.JSONSerializer;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.choco.nettychat.protocol.command.Command.LOGIN_REQUEST;
-import static com.choco.nettychat.protocol.command.Command.LOGIN_RESPONSE;
+import static com.choco.netty.demo.juejinchat.protocol.command.Command.LOGIN_REQUEST;
+import static com.choco.netty.demo.juejinchat.protocol.command.Command.LOGIN_RESPONSE;
 
 public class PacketCodeC {
 

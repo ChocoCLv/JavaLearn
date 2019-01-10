@@ -1,8 +1,8 @@
-package com.choco.nettychat.protocol.response;
+package com.choco.netty.demo.juejinchat.protocol.response;
 
 import lombok.Data;
-import com.choco.nettychat.protocol.command.Command;
-import com.choco.nettychat.protocol.command.Packet;
+import com.choco.netty.demo.juejinchat.protocol.command.Command;
+import com.choco.netty.demo.juejinchat.protocol.command.Packet;
 
 @Data
 public class LoginResponsePacket extends Packet {

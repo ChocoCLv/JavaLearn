@@ -1,6 +1,6 @@
-package com.choco.nettychat.serialize;
+package com.choco.netty.demo.juejinchat.serialize;
 
-import com.choco.nettychat.serialize.impl.JSONSerializer;
+import com.choco.netty.demo.juejinchat.serialize.impl.JSONSerializer;
 
 public interface Serializer {
     byte JSON_SERIALIZER = 1;

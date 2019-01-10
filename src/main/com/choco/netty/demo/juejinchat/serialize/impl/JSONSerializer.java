@@ -1,8 +1,8 @@
-package com.choco.nettychat.serialize.impl;
+package com.choco.netty.demo.juejinchat.serialize.impl;
 
 import com.alibaba.fastjson.JSON;
-import com.choco.nettychat.serialize.Serializer;
-import com.choco.nettychat.serialize.SerializerAlgorithm;
+import com.choco.netty.demo.juejinchat.serialize.Serializer;
+import com.choco.netty.demo.juejinchat.serialize.SerializerAlgorithm;
 
 public class JSONSerializer implements Serializer {
 

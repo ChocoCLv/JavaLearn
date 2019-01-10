@@ -1,4 +1,4 @@
-package com.choco.nettychat.server;
+package com.choco.netty.demo.juejinchat.server;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelInitializer;

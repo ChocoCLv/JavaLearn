@@ -1,12 +1,12 @@
-package com.choco.nettychat.server;
+package com.choco.netty.demo.juejinchat.server;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
-import com.choco.nettychat.protocol.command.Packet;
-import com.choco.nettychat.protocol.command.PacketCodeC;
-import com.choco.nettychat.protocol.request.LoginRequestPacket;
-import com.choco.nettychat.protocol.response.LoginResponsePacket;
+import com.choco.netty.demo.juejinchat.protocol.command.Packet;
+import com.choco.netty.demo.juejinchat.protocol.command.PacketCodeC;
+import com.choco.netty.demo.juejinchat.protocol.request.LoginRequestPacket;
+import com.choco.netty.demo.juejinchat.protocol.response.LoginResponsePacket;
 
 import java.util.Date;
 

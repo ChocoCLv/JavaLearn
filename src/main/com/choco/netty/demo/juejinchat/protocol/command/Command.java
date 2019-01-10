@@ -1,4 +1,4 @@
-package com.choco.nettychat.protocol.command;
+package com.choco.netty.demo.juejinchat.protocol.command;
 
 public interface Command {
 

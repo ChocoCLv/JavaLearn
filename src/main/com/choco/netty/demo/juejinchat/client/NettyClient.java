@@ -1,4 +1,4 @@
-package com.choco.nettychat.client;
+package com.choco.netty.demo.juejinchat.client;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelInitializer;
