@@ -45,23 +45,23 @@ public class ConstructBinaryTree {
         BinaryTreeNode root = new BinaryTreeNode();
         root.value = rootVal;
 
-        if(preOrder.size()==1)
+        if (preOrder.size() == 1)
             return root;
 
         int rootIndexInOrder = 0;
 
-        for(int i:inOrder){
-            if(i==rootVal)
+        for (int i : inOrder) {
+            if (i == rootVal)
                 break;
             rootIndexInOrder++;
         }
 
-        if(rootIndexInOrder > 0){
-            root.left = constructTree(preOrder.subList(1,rootIndexInOrder+1), inOrder.subList(0,rootIndexInOrder));
+        if (rootIndexInOrder > 0) {
+            root.left = constructTree(preOrder.subList(1, rootIndexInOrder + 1), inOrder.subList(0, rootIndexInOrder));
         }
 
-        if(rootIndexInOrder<preOrder.size()-1){
-            root.right = constructTree(preOrder.subList(rootIndexInOrder+1,preOrder.size()), inOrder.subList(rootIndexInOrder+1,preOrder.size()));
+        if (rootIndexInOrder < preOrder.size() - 1) {
+            root.right = constructTree(preOrder.subList(rootIndexInOrder + 1, preOrder.size()), inOrder.subList(rootIndexInOrder + 1, preOrder.size()));
         }
 
         return root;
