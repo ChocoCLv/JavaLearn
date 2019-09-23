@@ -1,9 +1,6 @@
 package com.choco.offer.Chapter2;
 
-import com.choco.Util.Print;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -13,28 +10,26 @@ import java.util.List;
  * 例如{2,3,1,0,2,5,3}，那么对应的输出是重复的数字2或者3
  */
 public class DuplicateDigits {
-    public List<Integer> findDuplicates(int[] nums) {
+    public static void main(String[] args) {
+        DuplicateDigits dd = new DuplicateDigits();
+        System.out.println(dd.findDuplicates(new int[]{2, 3, 1, 0, 5, 2, 3}));
+    }
+
+    public int findDuplicates(int[] nums) {
         int length = nums.length;
         List<Integer> result = new ArrayList<>();
         for (int i = 0; i < length; i++) {
             //直到nums[i] == i
             while (nums[i] != i) {
                 if (nums[i] == nums[nums[i]]) {
-                    result.add(nums[i]);
-                }else {
+                    return nums[i];
+                } else {
                     int tmp = nums[i];
-                    nums[i]=nums[nums[i]];
+                    nums[i] = nums[nums[i]];
                     nums[tmp] = tmp;
                 }
             }
         }
-        return result;
-    }
-
-    public static void main(String[] args) {
-        DuplicateDigits dd = new DuplicateDigits();
-        for(int i:dd.findDuplicates(new int[]{2,3,1,0,5,2,3})){
-            System.out.print(i+" ");
-        }
+        return -1;
     }
 }
