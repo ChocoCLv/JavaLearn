@@ -1,4 +1,4 @@
-package com.choco.offer.Chapter2.didi;
+package com.choco.offer.didi;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package com.choco.offer.Chapter2.Tencent;
+package com.choco.offer.Tencent;
 
 
 import java.util.Scanner;

@@ -1,4 +1,4 @@
-package com.choco.offer.Chapter2.ByteDance;
+package com.choco.offer.ByteDance;
 
 
 import java.util.*;
